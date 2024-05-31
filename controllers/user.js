@@ -1,5 +1,5 @@
 const newUser = async (req, res) => { 
-    console.log('Hello World!')
+    console.log('Hello World!!')
 }
 
 export {
