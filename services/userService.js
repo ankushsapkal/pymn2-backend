@@ -1,4 +1,4 @@
-const User = require('../models/userModel');
+import User from '../models/userModel.js';
 
 const createUser = async (userData) => {
     try {
@@ -9,7 +9,16 @@ const createUser = async (userData) => {
     }
 };
 
+const getAllUsers = async () => {
+    try {
+        return await User.findAll();
+    } catch (error) {
+        throw new Error('Error retrieving users: ' + error.message);
+    }
+};
 
-module.exports = {
-    createUser
+
+export  {
+    createUser,
+    getAllUsers
 };
