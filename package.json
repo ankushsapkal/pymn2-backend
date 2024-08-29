@@ -17,6 +17,7 @@
     "express": "^4.19.2",
     "mysql2": "^3.6.2",
     "nodemon": "^3.1.4",
+    "pymn2-backend": "file:",
     "sequelize": "^5.22.5"
   }
 }
