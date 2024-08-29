@@ -1,0 +1,23 @@
+{
+  "name": "pymn2-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mysql2": "^3.6.2",
+    "nodemon": "^3.1.4",
+    "pymn2-backend": "file:",
+    "sequelize": "^5.22.5"
+  }
+}
