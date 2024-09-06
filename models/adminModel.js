@@ -10,12 +10,15 @@ const Admin = sequelize.define('Admin', {
     },
     username: {
         type: DataTypes.STRING,
-        allowNull: false,
-        unique: true
+        allowNull: false
     },
     password: {
         type: DataTypes.STRING,
         allowNull: false
+    },
+    refresh_token: {
+        type: DataTypes.TEXT,
+        allowNull: true
     }
 }, {
     tableName: 'admin_logIn',
