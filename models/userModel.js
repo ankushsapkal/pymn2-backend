@@ -8,21 +8,38 @@ const User = sequelize.define('User', {
         autoIncrement: true,
         primaryKey: true
     },
-    username: {
+    first_name: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    password: {
+    last_name: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    emailid: {
+    email: {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true,
         validate: {
             isEmail: true
         }
+    },
+    mobile_number: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique:true,
+    },
+    product_type: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    created_at: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW
+    },
+    updated_at: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW
     }
 }, {
     tableName: 'user',
