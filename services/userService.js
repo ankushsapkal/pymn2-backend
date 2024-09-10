@@ -5,7 +5,7 @@ const createUser = async (userData) => {
         const newUser = await User.create(userData);
         return newUser;
     } catch (error) {
-        throw new Error('Error creating user: ' + error.message);
+        throw new Error('User With this email or mobile number already Exist or Error creating user: ' + error.message);
     }
 };
 
@@ -17,8 +17,7 @@ const getAllUsers = async () => {
     }
 };
 
-
-export  {
+export {
     createUser,
     getAllUsers
 };
