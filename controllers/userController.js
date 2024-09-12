@@ -18,7 +18,9 @@ const getAllUsers = async (req, res) => {
     }
 };
 
+
 export {
     createUser,
     getAllUsers,
+
 };

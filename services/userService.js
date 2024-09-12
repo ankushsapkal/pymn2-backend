@@ -20,5 +20,6 @@ const getAllUsers = async () => {
 
 export  {
     createUser,
-    getAllUsers
+    getAllUsers,
+   
 };

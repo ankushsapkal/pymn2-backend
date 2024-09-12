@@ -9,4 +9,5 @@ app.use(express.json());
 app.use('/users', userRoutes);
 app.use('/admin', adminRoutes);
 
+
 export default app;
