@@ -18,6 +18,8 @@ const registerUserValidators = [
 
     check('email')
         .trim()
+        .notEmpty().withMessage('Email is required')
+        .bail() 
         .isEmail().withMessage('Valid email is required') 
         .bail() 
         .normalizeEmail() 
