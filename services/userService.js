@@ -5,7 +5,16 @@ const createUser = async (userData) => {
         const newUser = await User.create(userData);
         return newUser;
     } catch (error) {
-        throw new Error('User With this email or mobile number already Exist or Error creating user: ' + error.message);
+        if (error.name === 'SequelizeUniqueConstraintError') {
+            const field = error.errors[0].path; 
+
+            if (field === 'email') {
+                throw new Error('User with this email already exists.');
+            } else if (field === 'mobile_number') {
+                throw new Error('User with this mobile number already exists.');
+            }
+        }
+        throw new Error('Error creating user: ' + error.message);
     }
 };
 
