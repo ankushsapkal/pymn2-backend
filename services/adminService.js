@@ -28,8 +28,20 @@ const getAdminByRefreshToken = async (refreshToken) => {
     }
 };
 
+const clearRefreshToken = async (adminId) => {
+    try {
+        await Admin.update(
+            { refresh_token: null },
+            { where: { id: adminId } }
+        );
+    } catch (error) {
+        throw new Error('Error clearing refresh token: ' + error.message);
+    }
+};
+
 export {
     authenticateAdmin,
     saveRefreshToken,
-    getAdminByRefreshToken
+    getAdminByRefreshToken,
+    clearRefreshToken 
 };
