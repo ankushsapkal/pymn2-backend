@@ -1,4 +1,4 @@
-import { authenticateAdmin, saveRefreshToken, getAdminByRefreshToken } from '../services/adminService.js';
+import { authenticateAdmin, saveRefreshToken, getAdminByRefreshToken,clearRefreshToken } from '../services/adminService.js';
 import jwt from 'jsonwebtoken';
 
 const adminLogin = async (req, res) => {
@@ -64,7 +64,30 @@ const refreshAccessToken = async (req, res) => {
     }
 };
 
+const adminLogout = async (req, res) => {
+    const { refreshToken } = req.body;
+
+    try {
+        if (!refreshToken) {
+            return res.status(400).json({ error: 'Refresh token not provided' });
+        }
+
+        const admin = await getAdminByRefreshToken(refreshToken);
+
+        if (!admin) {
+            return res.status(403).json({ error: 'Invalid refresh token' });
+        }
+
+        await clearRefreshToken(admin.id);
+
+        res.status(200).json({ message: ' Logout successful' });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
 export {
     adminLogin,
-    refreshAccessToken
+    refreshAccessToken,
+    adminLogout
 };
